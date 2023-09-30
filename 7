@@ -1,0 +1,53 @@
+/*Foi feita uma pesquisa para saber o perfil dos alunos que cursam o ginásio de uma determinada
+escola. Cada aluno fornecia a sua série (primeira-1, segunda-2, terceira-3 ou quarta-4), quantos
+livros liam por mês e se gostavam de fazer redação (Sim-1 ou Não-0). Fazer um programa que
+leia os dados, calcule e imprima: A quantidade de alunos que está na terceira série
+A maior quantidade de livros lidos por um aluno que está na quarta série; 
+a porcentagem de alunos que não gostam de fazer redação e que estão na terceira série.
+OBS: A condição de parada (flag) é que seja digitado 0 (zero) para idade.*/
+
+//Inclusão de bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+
+//Função principal
+int main()
+{
+//Declaração de variáveis
+int cont = 0, serie3 = 0, serie4 = 0, idade = 0, num = 0, livros = 0, redacao = 0, naogosta = 0, maior;
+
+float media = 0, percentual = 0;
+//Entrada de dados
+do
+    {    
+    printf("Digite sua idade\n");
+    scanf("%d", &idade);
+        if(!idade)
+            break;
+    printf("Digite sua serie\n");
+    scanf("%d", &num);
+    printf("Gosta de fazer redação\n\t1. Sim\t2. Nao\n");
+    scanf("%d", &redacao);
+    printf("Digite a quantidade de livros lidos\n");
+    scanf("%d", &livros);
+    //Cálculo
+    if(num == 3)
+        {
+        serie3 ++;
+        if(redacao == 2)
+            naogosta ++;
+        }
+    if(num == 4)
+       {
+       serie4 ++;
+         if(livros > maior)
+            maior = livros;
+       }     
+    } while(idade > 0);        
+percentual = ((float)naogosta / serie3) * 100;
+//Saída de dados
+printf("\nA quantidade de alunos na terceira serie e = %d\nA maior quantidade de livros lidos pelos alunos na 4 serie e = %d\nPercentual de alunos na terceira serie que nao gosta de redacao = %.0f%%\n", serie3, maior, percentual);
+
+//Fim da função principal
+return 0;
+}
