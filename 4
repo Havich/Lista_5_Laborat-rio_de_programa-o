@@ -1,0 +1,38 @@
+/*Uma determinada empresa armazena para cada funcionário (10 no total) uma ficha contendo o código, o número de horas trabalhadas e o seu n de dependentes. Considerando que: A empresa paga 12 reais por hora e 40 reais por dependentes e Sobre o salário são feitos descontos de 8,5% para o INSS e 5% para IR. Faça um programa para ler o código, número de horas trabalhadas e número de dependentes de cada funcionário. Após a leitura, escreva qual o código, os valores descontados para cada tipo de imposto e finalmente o salário líquido de cada um dos funcionários*/
+
+//Inclusão de bibliotecas
+#include <stdio.h>
+
+//Função principal
+int main()
+{
+//Declaração de variáveis
+int salariob, cont = 0, cod [10], horas, dependentes;
+float desconto1[10], desconto2[10], salario[10];
+
+//Entrada de dados
+for(cont = 0; cont < 10; cont++)
+  {
+    printf("Digite o seu codigo\n");
+    scanf("%d", &cod[cont]);
+    printf("Digite a quantidade de horas trabalhadas\n");
+    scanf("%d", &horas);
+    printf("Digite o numero de dependentes\n");
+    scanf("%d", &dependentes);
+    //Cálculo
+    horas *= 12;
+    dependentes *= 40;
+    salariob = horas + dependentes;
+    desconto1[cont] = (0.085 * salariob);
+    desconto2[cont] = (0.05 * salariob);
+    salario[cont] = salariob - desconto1[cont] - desconto2[cont];
+  }
+
+//Saída de dados
+for(cont = 0; cont < 10; cont++)
+  {
+  printf("\n\nOla funcionario %d\nSeu desconto de INSS = %.2f\nO desconto de IR = %.2f\nSeu salario liquido e = %.2f\n\n", cod[cont], desconto1[cont], desconto2[cont], salario[cont]);
+  }
+//Fim da função principal
+return 0;
+}
