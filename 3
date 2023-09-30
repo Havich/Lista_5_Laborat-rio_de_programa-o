@@ -1,0 +1,40 @@
+/*Faça um programa que solicite ao usuário 10 números inteiros e, ao final, informe a quantidade de números impares e pares lidos. Calcule também a soma dos números pares e a média dos
+números impares*/
+
+//Inclusão de bibliotecas
+#include <stdio.h>
+
+//Função principal
+int main()
+{
+//Declaração de variáveis
+int num, cont = 0, impares = 0, pares = 0, cont1 = 0;
+float soma = 0, soma1, media = 0;
+
+//Entrada de dados
+for(cont = 0; cont < 10; cont++)
+  {
+    printf("Digite o %d° valor\n", cont + 1);
+    scanf("%d", &num);
+    if(num % 2)
+      {
+      impares++;
+      soma1 += num;
+      cont1++;
+      }
+    else
+      {
+      pares++;
+      soma += num;
+      }
+  }
+
+//Cálculo
+media = soma1 / cont1;
+
+//Saída de dados
+printf("O total de numeros pares e = %d\nO total de numeros impares e = %d\nA soma dos pares e = %.2f\nA media dos impares e = %.2f\n",pares, impares, soma, media);
+
+//Fim da função principal
+return 0;
+}
