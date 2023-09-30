@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int id;
+    double valor, percentual;
+    double novoValor, valorTotalSemAumento = 0;
+    int produtosMaisCaros100 = 0;
+    double aumentoSuperior5 = 0;
+    double produtoMaisCaro = 0;
+
+    printf("Informe o ID do produto (digite 0 para encerrar): ");
+    scanf("%d", &id);
+
+    while (id != 0) {
+        printf("Informe o valor do produto: ");
+        scanf("%lf", &valor);
+
+        printf("Informe o percentual de aumento (em porcentagem): ");
+        scanf("%lf", &percentual);
+
+        novoValor = valor * (1 + percentual / 100);
+
+        printf("Novo valor do produto: %.2lf\n", novoValor);
+
+        if (novoValor > 100) {
+            produtosMaisCaros100++;
+
+            if (percentual > 5) {
+                aumentoSuperior5++;
+            }
+        } else if (percentual == 0) {
+            valorTotalSemAumento += valor;
+        }
+
+        if (novoValor > produtoMaisCaro) {
+            produtoMaisCaro = novoValor;
+        }
+
+        printf("\nInforme o ID do próximo produto (digite 0 para encerrar): ");
+        scanf("%d", &id);
+    }
+
+    double mediaValorSemAumento = valorTotalSemAumento / produtosMaisCaros100;
+
+    printf("\nQuantidade de produtos mais caros que R$ 100,00 (após aumento) e com aumento superior a 5%%: %d\n", (int)aumentoSuperior5);
+    printf("Média de valor dos produtos que não sofreram aumento: %.2lf\n", mediaValorSemAumento);
+    printf("Valor do produto mais caro (após aumento): %.2lf\n", produtoMaisCaro);
+
+    return 0;
+}
