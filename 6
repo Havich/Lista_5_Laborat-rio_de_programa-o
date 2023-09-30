@@ -1,0 +1,57 @@
+/*Em uma pesquisa com 200 pessoas que assistiram uma peça de teatro, em relação a
+sua opinião sobre a mesma. Cada espectador respondeu a um questionário que solicitava os
+seguintes dados: idade da pessoa; identificador da pessoa; à
+opinião em relação à peça(de 0 a 10).
+Faça um programa que, a partir destes dados, calcule e imprima:
+a.A quantidade de respostas 10.
+b. A média de idade das pessoas que responderam o questionário.livros.
+A percentagem de pessoas que responderam 5 ou menos para a opinião da peça.
+d. O identificador da pessoa mais velha.
+Considere que a maior idade não é repetida.*/
+
+//Inclusão de bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+
+//Função principal
+int main()
+{
+//Declaração de variáveis
+int ID, ID1, idade = 0, nota = 0, soma = 0, maximo = 0, notabaixa = 0, maior;
+
+float media = 0, percentual = 0;
+//Entrada de dados
+for(int i = 0; i < 5; i++)
+    {    
+    printf("Digite sua idade\n");
+    scanf("%d", &idade);
+    printf("Digite seu ID\n");
+    scanf("%d", &ID);
+    printf("Digite sua nota 0 a 10\n");
+    scanf("%d", &nota);
+    
+    //Cálculo
+    if(i == 0)
+        {
+        maior = idade;
+        ID1 = ID;
+        }
+    if(nota == 10)
+        maximo++;
+    if(nota <= 5)
+        notabaixa ++;
+    if(maior < idade)
+        {
+        maior = idade;
+        ID1 = ID;
+        }
+    soma += idade;
+    }
+media = (float)soma / 5; 
+percentual = ((float)notabaixa / 5 ) * 100;
+//Saída de dados
+printf("\nA quantidade de respostas 10 = %d\nA media da idade dos participantes = %.2f\nPercentual de pessoas que deram 5 ou menos = %.0f%%\nID da pessoa mais velha = %d\n", maximo, media, percentual, ID1);
+
+//Fim da função principal
+return 0;
+}
