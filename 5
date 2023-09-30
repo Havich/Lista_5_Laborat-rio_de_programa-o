@@ -1,0 +1,59 @@
+/*Em uma pesquisa de campo, uma editora solicitou os seguintes dados para os entrevistados:
+sexo, idade, quantidade de livros que leu no ano de 2006. Faça um programa que leia os
+dados digitados pelo usuario, sendo que deverao ser solicitados dados ate que a idade digitada
+seja um valor negativo. Depois, calcule e imprima: A quantidade total de livros lidos pelos 
+entrevistados menores de 10 anos. A quantidade de mulheres que leram 5 livros ou mais. 
+A média de idade dos homens que leram menos que 5 livros.
+O percentual de pessoas que não leram livros.*/
+
+//Inclusão de bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+
+//Função principal
+int main()
+{
+//Declaração de variáveis
+int sexo = 0, idade = 0, livros = 0, homens = 0, mulheres = 0, menor = 0, cont, soma = 0, pessoas = 0, zero = 0;
+
+float media = 0;
+//Entrada de dados
+do
+    {    
+    printf("Digite seu sexo\n\t1.Masculino\n\t2.Feminino\n");
+    scanf("%d", &sexo);
+    printf("Digite sua idade ou um valor negativo para encerrar\n");
+    scanf("%d", &idade);
+    if(idade < 0)
+        {
+        break;
+        }
+    printf("Digite a quantidade de livros lidos no ano de 2006\n");
+    scanf("%d", &livros);
+    //Cálculo
+    if(idade < 10)
+        menor += livros;
+    if(sexo == 2 && livros > 5)
+        mulheres ++;
+    else if(sexo == 1 && livros < 5)
+        {homens ++;
+        soma += idade;}
+    else if(sexo != 1 && sexo != 2)
+    {
+        printf("Sexo invalido\n");
+        exit(0); 
+    }
+    if(livros < 1)
+        zero++;
+    pessoas++;
+    }
+while(idade >= 0);
+
+media = (float)soma / homens; 
+
+//Saída de dados
+printf("\nA quantidade de livros lidos por menores de 10 anos = %d\nA quantidade de mulheres que leram mais de 5 livros = %d\nA media de homens que leram menos de 5 livros  e = %.2f\nTotal de pessoas que nao leram nenhum livro = %d", menor, mulheres, media, zero);
+
+//Fim da função principal
+return 0;
+}
